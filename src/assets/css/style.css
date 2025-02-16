@@ -1,0 +1,243 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ol,ul{
+    list-style-type: none;
+}
+body{
+    font-family: "Noto Sans", serif;
+    color: #fff;
+    background-color: blanchedalmond;
+}
+.main{
+    width: 1280px;
+    height: 810px;
+    background: #040b3cdd;
+    margin: 20px auto 0;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    padding: 20px;
+    position: relative;
+}
+.heading{
+    text-align: center;
+}
+.form-control{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.form-control input{
+    width: 89%;
+    font-size:20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.form-control button{
+    font-size: 20px;
+    font-weight: 700;
+    color: #040b3cdd;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    margin-left: 5px;
+    border: 2px solid #040b3cdd;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+}
+.addNewItemBtn,
+.updateItemBtn{
+    width: 124px;
+}
+/* .updateItemBtn{
+    display: none;
+} */
+.form-control button:hover{
+    color: #fff;
+    background-color: #040b3cdd;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.pending,
+.done{
+    width: 50%;
+    height: 640px;
+    border: 1px solid #fff;
+    overflow-y: auto;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.itemHead{
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    padding: 10px 0;
+}
+.pendingListItemHolder,
+.completedListItemHolder {
+    padding: 5px 15px;
+}
+.pendingListItemHolder li{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    /*color: #000;
+    */background-color: rgb(164 165 3);
+    list-style-type: none;
+    padding: 10px 5px 10px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all linear 0.2s;
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+}
+#pendingListItemHolder li:hover{
+    background-color: rgb(129, 129, 4);
+}
+.taskItem{
+    width: 100%;
+}
+.buttonsWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 15px;
+}
+.pendingDeleteBtn,
+.editBtn,
+.doneBtn,
+.completeRestoreBtn,
+.completeDeleteBtn{
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    color: #fff;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+.pendingDeleteBtn:hover,
+.completeDeleteBtn:hover{
+    color: red;
+}
+.doneBtn:hover{
+    color: green;
+}
+.editBtn:hover{
+    color: rgb(243, 73, 206);
+}
+.completeRestoreBtn:hover{
+    color: rgb(4, 0, 253);
+}
+.completedListItemHolder li{
+    font-size: 20px;
+    text-transform: capitalize;
+    list-style-type: none;
+    background-color: #1eb521;
+    padding: 10px 5px 10px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all linear 0.2s;
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+}
+.completedListItemHolder li:hover{
+    background-color: #009202;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.statusDone{
+    cursor: pointer;
+}
+.deleteIcon{
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.deleteIcon:hover{
+    background-color: red !important;
+}
+.statusWaitting{
+    display: none;
+}
+.statusCompleted{
+    display: block;
+    text-decoration: line-through;
+}
