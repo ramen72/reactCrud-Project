@@ -9,6 +9,7 @@ const ToDoComponent = () => {
     let [taskText, setTaskText] = useState("")
     let [tasks, setTasks] = useState([]);
     let [isUpdate, setIsUpdate] = useState(false);
+    let [index, setIndex] = useState(null);
 
     let handleInputChange = (e)=>{
         setTaskText(e.target.value)
@@ -25,15 +26,26 @@ const ToDoComponent = () => {
         let newTask = [...tasks];
         newTask.splice(index,1)
         setTasks(newTask)
+        setTaskText("")
         setIsUpdate(false)
         console.log(newTask)
     }
     
-    let handleEdit = (index)=>{
+    let handleEdit = (item,index)=>{
         setIsUpdate(true)
-        setTaskText(tasks[index])
+        setTaskText(item)
+        setIndex(index)
+    }
+    
+    let handelUpdate = ()=>{
+        let updateTasks = [...tasks];
+        updateTasks[index] = taskText;
+        setTasks(updateTasks);
+        setIsUpdate(false)
+        setTaskText("")
         console.log(index)
     }
+
     
     return (
         <Fragment>
@@ -44,7 +56,7 @@ const ToDoComponent = () => {
                 {
                     isUpdate
                     ?
-                    <button className="updateItemBtn" type="submit">Update</button>
+                    <button onClick={handelUpdate} className="updateItemBtn" type="submit">Update</button>
                     :
                     <button  onClick={handleAddTodo} className="addNewItemBtn" type="submit">Add</button>                    
                 }
@@ -58,7 +70,7 @@ const ToDoComponent = () => {
                                 <li key={index} className="statusPending">
                                     <span className="taskItem">{item}</span>
                                     <div className="buttonsWrapper">
-                                        <button className="editBtn" onClick={()=>handleEdit(index)}>
+                                        <button className="editBtn" onClick={()=>handleEdit(item,index)}>
                                             <FaEdit/>
                                         </button>
                                         <button className="doneBtn">
