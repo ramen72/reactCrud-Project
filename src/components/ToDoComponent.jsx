@@ -11,9 +11,10 @@ const ToDoComponent = () => {
     let [isUpdate, setIsUpdate] = useState(false);
     let [index, setIndex] = useState(null);
 
+    let [completeTasks, setCompleteTasks] = useState([])
+
     let handleInputChange = (e)=>{
         setTaskText(e.target.value)
-        console.log(taskText)
     }
 
     let handleAddTodo = ()=>{
@@ -46,6 +47,31 @@ const ToDoComponent = () => {
         console.log(index)
     }
 
+    let handleCompleteTaskAdded = (item,index)=>{
+        setCompleteTasks([...completeTasks,item])
+        let newTask = [...tasks];
+        newTask.splice(index,1)
+        setTasks(newTask)
+        setTaskText("")
+        setIsUpdate(false)
+        console.log(newTask, completeTasks)
+    }
+    
+    let handleRestore = (item,index)=>{
+        setTasks([...tasks,item])
+        let newTask = [...completeTasks];
+        newTask.splice(index,1)
+        setCompleteTasks(newTask)
+        setTaskText("")
+        setIsUpdate(false)
+        console.log(newTask, completeTasks)
+    }
+
+    let handleCompleteTaskDelete = (index)=>{
+        let newTask = [...completeTasks];
+        newTask.splice(index,1)
+        setCompleteTasks(newTask)
+    }
     
     return (
         <Fragment>
@@ -73,7 +99,7 @@ const ToDoComponent = () => {
                                         <button className="editBtn" onClick={()=>handleEdit(item,index)}>
                                             <FaEdit/>
                                         </button>
-                                        <button className="doneBtn">
+                                        <button className="doneBtn" onClick={()=>handleCompleteTaskAdded(item,index)}>
                                             <FaCheck/>
                                         </button>
                                         <button onClick={()=>{handleDelete(index)}} className="pendingDeleteBtn">
@@ -88,17 +114,21 @@ const ToDoComponent = () => {
                 <div className="done">
                     <h2 className="itemHead">Completed Items Details</h2>
                     <ul className="completedListItemHolder">
-                        <li className="statusPending">
-                            <span className="taskItem">Done</span>
-                            <div className="buttonsWrapper">
-                                <button className="completeRestoreBtn">
-                                    <FaRotateLeft/>
-                                </button>
-                                <button className="completeDeleteBtn">
-                                    <RiDeleteBin5Line/>
-                                </button>
-                            </div>
-                        </li>
+                        {
+                            completeTasks.map((item,index)=>(
+                                <li className="statusPending" key={index}>
+                                    <span className="taskItem">{item}</span>
+                                    <div className="buttonsWrapper">
+                                        <button className="completeRestoreBtn" onClick={()=>handleRestore(item,index)}>
+                                            <FaRotateLeft/>
+                                        </button>
+                                        <button className="completeDeleteBtn" onClick={()=>handleCompleteTaskDelete(index)}>
+                                            <RiDeleteBin5Line/>
+                                        </button>
+                                    </div>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </div>

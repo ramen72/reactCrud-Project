@@ -70,12 +70,10 @@ body{
 .updateItemBtn{
     width: 124px;
 }
-/* .updateItemBtn{
-    display: none;
-} */
-.form-control button:hover{
+.form-control button:hover {
     color: #fff;
-    background-color: #040b3cdd;
+    background-color: #4CAF50;
+    cursor: pointer;
 }
 .content{
     display: flex;
@@ -108,8 +106,7 @@ body{
     font-size: 20px;
     font-weight: 600;
     text-transform: capitalize;
-    /*color: #000;
-    */background-color: rgb(164 165 3);
+    background-color: rgb(164 165 3);
     list-style-type: none;
     padding: 10px 5px 10px 20px;
     border-radius: 5px;
@@ -159,15 +156,19 @@ body{
 .pendingDeleteBtn:hover,
 .completeDeleteBtn:hover{
     color: red;
+    cursor: pointer;
 }
 .doneBtn:hover{
     color: green;
+    cursor: pointer;
 }
 .editBtn:hover{
     color: rgb(243, 73, 206);
+    cursor: pointer;
 }
 .completeRestoreBtn:hover{
     color: rgb(4, 0, 253);
+    cursor: pointer;
 }
 .completedListItemHolder li{
     font-size: 20px;
@@ -192,52 +193,4 @@ body{
 }
 .completedListItemHolder li:hover{
     background-color: #009202;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.statusDone{
-    cursor: pointer;
-}
-.deleteIcon{
-    padding: 5px;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s linear;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -ms-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-.deleteIcon:hover{
-    background-color: red !important;
-}
-.statusWaitting{
-    display: none;
-}
-.statusCompleted{
-    display: block;
-    text-decoration: line-through;
 }
